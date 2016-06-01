@@ -40,7 +40,7 @@ public class FlightController {
 		txtResult.appendText("\nDall'aeroporto "+boxAirport.getValue()+" è possibile raggiungere: \n");
     	
     	for( AirportWithKm a : list)
-    		txtResult.appendText(a.getAirport()+"\n");
+    		txtResult.appendText(String.format("%-50s %4d\n", a.getAirport(),a.getKm()));
     	
     	
     }
@@ -54,13 +54,16 @@ public class FlightController {
     	List<Airport> list = model.getListAirport();
     	
     	if( list.isEmpty()) {
-    		txtResult.appendText("La compagnia aerea "+boxAirline.getValue()+" non serve nessun aeroporto!\n");
+    		txtResult.appendText("\nLa compagnia aerea "+boxAirline.getValue()+" non serve nessun aeroporto!\n");
     		return;
     	}
-    		
+    	
+    	if(!boxAirport.getItems().isEmpty())
+    		boxAirport.getItems().clear();
+    	
     	boxAirport.getItems().addAll(list);
     	
-    	txtResult.appendText("La compagnia aerea "+boxAirline.getValue()+" serve :\n");
+    	txtResult.appendText("\nLa compagnia aerea "+boxAirline.getValue()+" serve :\n");
     	for ( Airport a : list)
     		txtResult.appendText(a+"\n");
     	

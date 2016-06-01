@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="it.polito.tdp.flight.FlightController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.flight.FlightController">
    <top>
       <Label text="Flight (simulazione d'esame 01/06/2016)" BorderPane.alignment="CENTER" />
    </top>
@@ -42,6 +42,9 @@
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Courier New" size="12.0" />
+               </font>
             </TextArea>
          </children>
          <BorderPane.margin>

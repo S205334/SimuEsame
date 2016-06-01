@@ -2,11 +2,7 @@ package it.polito.tdp.flight.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultWeightedEdge;
@@ -15,7 +11,6 @@ import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 import com.javadocmd.simplelatlng.LatLng;
 import com.javadocmd.simplelatlng.LatLngTool;
 import com.javadocmd.simplelatlng.util.LengthUnit;
-import com.sun.javafx.geom.Edge;
 
 import it.polito.tdp.flight.db.FlightDAO;
 
@@ -59,7 +54,7 @@ public class Model {
 		dao = new FlightDAO();
 		routes = dao.getRoutesByAirline(airline);
 		
-		System.out.println(routes.size());
+		// System.out.println(routes.size());
 		
 		for(Route r : routes) {
 			Airport source =  airports.get(airports.indexOf(new Airport (r.getSourceAirportId())));
@@ -69,7 +64,7 @@ public class Model {
 			Graphs.addEdge(graph, source, destination, km);
 		}
 		
-		System.out.println("Archi: "+graph.edgeSet().size()+" Vertici: "+graph.vertexSet().size());
+		// System.out.println("Archi: "+graph.edgeSet().size()+" Vertici: "+graph.vertexSet().size());
 		
 	}
 	
@@ -90,6 +85,7 @@ public class Model {
 
 	public List<AirportWithKm> getDestinationsByAirport(Airport a) {
 		dao = new FlightDAO();
+		
 		List<AirportWithKm> list = new ArrayList<>();
 		
 		for(Airport ap : dao.getDestinationsByAirport(a)) {
@@ -98,9 +94,9 @@ public class Model {
 		
 		Collections.sort(list);
 
-		for(AirportWithKm ak : list)
+		/*for(AirportWithKm ak : list)
 			System.out.format("Airport: %s KM: %d\n", ak.getAirport(), ak.getKm());
-		
+		*/
 		return list;
 	}
 	
